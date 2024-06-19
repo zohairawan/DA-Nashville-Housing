@@ -37,7 +37,7 @@ from
 
 ---
 
-### 1. Fill in missing property_address data
+### 1. Fill in missing [property_address] data
 ##### Displays duplicate parcel id's, one of which is missing addresses
 ```sql
 select
@@ -66,7 +66,7 @@ set a.property_address = b.property_address
 
 ---
 
-### 2a. Make data useable by splitting property_address into individual columns (Address, City)
+### 2a. Make data useable by splitting [property_address] into individual columns (Address, City)
 ##### Adding [split_property_address] column
 ```sql
 alter table [dbo].[NashvilleHousing]
@@ -78,7 +78,7 @@ alter table [dbo].[NashvilleHousing]
 add [split_property_city] nvarchar(18)
 ```
 
-##### Setting values into split_address column
+##### Setting values into [split_property_address] column
 ```sql
 update [dbo].[NashvilleHousing]
 set [split_property_address] = substring([property_address], 1, charindex(',', [property_address])-1)
@@ -92,34 +92,34 @@ set [split_property_city] = substring([property_address],
 ```
 ---
 
-### 2b. Make data useable by splitting owner_address into individual columns (Address, City, State)
+### 2b. Make data useable by splitting [owner_address] into individual columns (Address, City, State)
 ##### Adding split_owner_address column
 ```sql
 alter table [dbo].[NashvilleHousing]
 add split_owner_address nvarchar(35)
 ```
-##### Adding split_owner_city column
+##### Adding [split_owner_city] column
 ```sql
 alter table [dbo].[NashvilleHousing]
 add split_owner_city nvarchar(18)
 ```
-##### Adding split_owner_state column
+##### Adding [split_owner_state] column
 ```sql
 alter table [dbo].[NashvilleHousing]
 add split_owner_state nvarchar(3)
 ```
 
-##### Setting values into split_owner_address column
+##### Setting values into [split_owner_address] column
 ```sql
 update [dbo].[NashvilleHousing]
 set split_owner_address = parsename(replace([owner_address], ',', '.'), 3)
 ```
-##### Setting values into split_owner_city column
+##### Setting values into [split_owner_city] column
 ```sql
 update [dbo].[NashvilleHousing]
 set split_owner_city = parsename(replace([owner_address], ',', '.'), 2)
 ```
-##### Setting values into split_owner_state column
+##### Setting values into [split_owner_state] column
 ```sql
 update [dbo].[NashvilleHousing]
 set split_owner_state = parsename(replace([owner_address], ',', '.'), 1)
