@@ -9,10 +9,10 @@ Skills Demonstrated:
 - Remove Duplicates
 */
 
--- Boilerplate --
-select
-	  [unique_id]
-    , [parcel_id]
+-- Boilerplate -- <br>
+select <br>
+	  [unique_id] <br>
+    , [parcel_id] <br>
     , [land_use_id]
     , [property_address]
     , [sale_date]
