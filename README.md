@@ -1,10 +1,10 @@
 # Nashville Housing Data Cleaning
 ### Skills Demonstrated
 * Data Cleaning
-** Filled in missing data with appropriate values
-    ** Made data more useable by splitting address into separate columns
+    * Filled in missing data with appropriate values
+    * Made data more useable by splitting address into separate columns
     * Standardize column
-* Remove Duplicates
+    * Remove Duplicates
 
 <br>
 <br>
@@ -37,9 +37,8 @@ from
 
 ---
 
-### 1. Populate Property Address data
-**Displays duplicate parcel id's, one of which is missing addresses**<br>
-**Filled in missing data**
+### 1. Fill in missing property_address data
+**Displays duplicate parcel id's, one of which is missing addresses**
 ```sql
 select
 	  a.parcel_id
@@ -57,7 +56,7 @@ order by a.parcel_id
 ```
 ---
 
-**Updates missing address in duplicate parcel id's**
+##### Filled in missing data
 ```sql
 update a
 set a.property_address = b.property_address
