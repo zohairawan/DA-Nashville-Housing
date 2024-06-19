@@ -9,7 +9,7 @@ Skills Demonstrated:
 - Remove Duplicates
 */
 
--- Boilerplate -- <br>
+**Boilerplate**
 ```sql
 select
 	  [unique_id]
@@ -36,31 +36,8 @@ from
 ```
 
 
-select <br>
-	  [unique_id] <br>
-    , [parcel_id] <br>
-    , [land_use_id] <br>
-    , [property_address] <br>
-    , [sale_date] <br>
-    , [sale_price] <br>
-    , [legal_reference] <br>
-    , [sold_as_vacant] <br>
-    , [owner_name] <br>
-    , [owner_address] <br>
-    , [acreage] <br>
-    , [tax_district] <br>
-    , [land_value] <br>
-    , [building_value] <br>
-    , [total_value] <br>
-    , [year_built] <br>
-    , [bedrooms] <br>
-    , [full_bath] <br>
-    , [half_bath] <br>
-from <br>
-	  [NASHVILLE_HOUSING].[dbo].[NashvilleHousing] <br>
-
 <br><br>
--- Populate Property Address data -- <br>
+**Populate Property Address data**
 -- Displays duplicate parcel id's, one of which is missing addresses -- <br>
 -- Filled in missing data -- <br>
 select <br>
