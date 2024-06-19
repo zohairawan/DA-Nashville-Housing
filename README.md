@@ -35,7 +35,7 @@ from
 
 ---
 
-**Populate Property Address data** <br>
+### 1. Populate Property Address data
 **Displays duplicate parcel id's, one of which is missing addresses**<br>
 **Filled in missing data**
 ```sql
