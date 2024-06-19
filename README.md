@@ -1,13 +1,11 @@
 # DA-Nashville-Housing
-
-/*
-Skills Demonstrated:
+**Skills Demonstrated:**
 - Data Cleaning
 - Filled in missing data
 - Made data more useable
 - Standardize column
 - Remove Duplicates
-*/
+
 
 **Boilerplate**
 ```sql
@@ -35,9 +33,11 @@ from
 	  [NASHVILLE_HOUSING].[dbo].[NashvilleHousing]
 ```
 
+---
+
 **Populate Property Address data** <br>
 **Displays duplicate parcel id's, one of which is missing addresses**<br>
-**Filled in missing data** <br>
+**Filled in missing data**
 ```sql
 select
 	  a.parcel_id
@@ -53,8 +53,9 @@ on a.parcel_id = b.parcel_id and a.unique_id != b.unique_id
 where a.[property_address] is null
 order by a.parcel_id
 ```
+---
 
-**Updates missing address in duplicate parcel id's** <br>
+**Updates missing address in duplicate parcel id's**
 ```sql
 update a
 set a.property_address = b.property_address
@@ -65,31 +66,42 @@ set a.property_address = b.property_address
 ```
 
 ---
--- Splitting property_address into individual columns (Address, City) -- <br>
--- Made data more useable <br>
 
--- Adding [split_property_address] column <br>
-alter table [dbo].[NashvilleHousing] <br>
-add [split_property_address] nvarchar(35) <br>
--- Adding [split_property_city] column <br>
-alter table [dbo].[NashvilleHousing] <br>
-add [split_property_city] nvarchar(18) <br>
-<br>
--- Setting values into split_address column <br>
-update [dbo].[NashvilleHousing] <br>
-set [split_property_address] = substring([property_address], 1, charindex(',', [property_address])-1) <br>
--- Setting values into [split_property_city] column <br>
-update [dbo].[NashvilleHousing] <br>
-set [split_property_city] = substring([property_address], <br>
-					charindex(',', [property_address])+2, <br>
-					len([property_address]) - (charindex(',', [property_address]) + 1)) <br>
----<br><br>
--- Splitting owner_address into individual columns (Address, City, State) -- <br>
--- Made data more useable <br>
+**Splitting property_address into individual columns (Address, City)** <br>
+**Made data more useable**
 
--- Adding split_owner_address column -- <br>
-alter table [dbo].[NashvilleHousing]<br>
-add split_owner_address nvarchar(35)<br>
+**Adding [split_property_address] column**
+```sql
+alter table [dbo].[NashvilleHousing]
+add [split_property_address] nvarchar(35)
+```
+**Adding [split_property_city] column**
+```sql
+alter table [dbo].[NashvilleHousing]
+add [split_property_city] nvarchar(18)
+```
+
+**Setting values into split_address column**
+```sql
+update [dbo].[NashvilleHousing]
+set [split_property_address] = substring([property_address], 1, charindex(',', [property_address])-1)
+```
+**Setting values into [split_property_city] column**
+```sql
+update [dbo].[NashvilleHousing]
+set [split_property_city] = substring([property_address],
+					charindex(',', [property_address])+2,
+					len([property_address]) - (charindex(',', [property_address]) + 1))
+```
+---
+**Splitting owner_address into individual columns (Address, City, State)**<br>
+**Made data more useable**<br>
+
+**Adding split_owner_address column**
+```sql
+alter table [dbo].[NashvilleHousing]
+add split_owner_address nvarchar(35)
+```
 -- Adding split_owner_city column --<br>
 alter table [dbo].[NashvilleHousing]<br>
 add split_owner_city nvarchar(18)<br>
