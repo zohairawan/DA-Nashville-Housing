@@ -33,7 +33,7 @@ select <br>
 from <br>
 	  [NASHVILLE_HOUSING].[dbo].[NashvilleHousing] <br>
 
----
+<br><br>
 -- Populate Property Address data <br>
 -- Displays duplicate parcel id's, one of which is missing addresses <br>
 -- Filled in missing data <br>
