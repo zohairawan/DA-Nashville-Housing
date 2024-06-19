@@ -34,7 +34,7 @@ from <br>
 	  [NASHVILLE_HOUSING].[dbo].[NashvilleHousing] <br>
 
 ---
--- Populate Property Address data -- <br>
+-- Populate Property Address data <br>
 -- Displays duplicate parcel id's, one of which is missing addresses <br>
 -- Filled in missing data <br>
 select <br>
@@ -51,7 +51,7 @@ on a.parcel_id = b.parcel_id and a.unique_id != b.unique_id <br>
 where a.[property_address] is null <br>
 order by a.parcel_id <br>
 <br>
--- Updates missing address in duplicate parcel id's -- <br>
+-- Updates missing address in duplicate parcel id's <br>
 update a <br>
 set a.property_address = b.property_address <br>
 	from [dbo].[NashvilleHousing] a <br>
