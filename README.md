@@ -10,6 +10,32 @@ Skills Demonstrated:
 */
 
 -- Boilerplate -- <br>
+```sql
+select
+	  [unique_id]
+    , [parcel_id]
+    , [land_use_id]
+    , [property_address]
+    , [sale_date]
+    , [sale_price]
+    , [legal_reference]
+    , [sold_as_vacant]
+    , [owner_name]
+    , [owner_address]
+    , [acreage]
+    , [tax_district]
+    , [land_value]
+    , [building_value]
+    , [total_value]
+    , [year_built]
+    , [bedrooms]
+    , [full_bath]
+    , [half_bath]
+from
+	  [NASHVILLE_HOUSING].[dbo].[NashvilleHousing]
+```
+
+
 select <br>
 	  [unique_id] <br>
     , [parcel_id] <br>
