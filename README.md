@@ -33,10 +33,10 @@ select
 from
 	  [NASHVILLE_HOUSING].[dbo].[NashvilleHousing]
 
----------------------------------------------------------------------------------------------
--- Populate Property Address data --
--- Displays duplicate parcel id's, one of which is missing addresses
--- Filled in missing data
+---
+-- Populate Property Address data -- <br>
+-- Displays duplicate parcel id's, one of which is missing addresses <br>
+-- Filled in missing data <br>
 select
 	  a.parcel_id
 	, a.property_address
