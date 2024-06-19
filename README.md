@@ -1,11 +1,13 @@
 # DA-Nashville-Housing
-**Skills Demonstrated:**
+### Skills Demonstrated
 - Data Cleaning
 - Filled in missing data
 - Made data more useable
 - Standardize column
 - Remove Duplicates
 
+<br>
+<br>
 
 **Boilerplate**
 ```sql
