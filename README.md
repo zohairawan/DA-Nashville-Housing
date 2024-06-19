@@ -1,9 +1,9 @@
 # Nashville Housing Data Cleaning
 ### Skills Demonstrated
 * Data Cleaning
-* Filled in missing data with appropriate values
-* Made data more useable by splitting address into separate columns
-* Standardize column
+** Filled in missing data with appropriate values
+    ** Made data more useable by splitting address into separate columns
+    * Standardize column
 * Remove Duplicates
 
 <br>
