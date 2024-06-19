@@ -58,7 +58,7 @@ set a.property_address = b.property_address <br>
 	join [dbo].[NashvilleHousing] b <br>
 	on a.parcel_id = b.parcel_id and a.unique_id != b.unique_id <br>
 	where a.[property_address] is null <br>
---- <br> <br>
+---
 -- Splitting property_address into individual columns (Address, City) -- <br>
 -- Made data more useable <br>
 
