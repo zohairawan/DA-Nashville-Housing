@@ -35,32 +35,35 @@ from
 	  [NASHVILLE_HOUSING].[dbo].[NashvilleHousing]
 ```
 
+**Populate Property Address data** <br>
+**Displays duplicate parcel id's, one of which is missing addresses**<br>
+**Filled in missing data** <br>
+```sql
+select
+	  a.parcel_id
+	, a.property_address
+	, a.unique_id
+	, b.unique_id
+	, b.parcel_id
+	, b.property_address
+	, isnull(a.property_address, b.property_address) as a_property_address
+from [dbo].[NashvilleHousing] a
+join [dbo].[NashvilleHousing] b
+on a.parcel_id = b.parcel_id and a.unique_id != b.unique_id
+where a.[property_address] is null
+order by a.parcel_id
+```
 
-<br><br>
-**Populate Property Address data**
--- Displays duplicate parcel id's, one of which is missing addresses -- <br>
--- Filled in missing data -- <br>
-select <br>
-	  a.parcel_id <br>
-	, a.property_address <br>
-	, a.unique_id <br>
-	, b.unique_id <br>
-	, b.parcel_id <br>
-	, b.property_address <br>
-	, isnull(a.property_address, b.property_address) as a_property_address <br>
-from [dbo].[NashvilleHousing] a <br>
-join [dbo].[NashvilleHousing] b <br>
-on a.parcel_id = b.parcel_id and a.unique_id != b.unique_id <br>
-where a.[property_address] is null <br>
-order by a.parcel_id <br>
-<br>
--- Updates missing address in duplicate parcel id's <br>
-update a <br>
-set a.property_address = b.property_address <br>
-	from [dbo].[NashvilleHousing] a <br>
-	join [dbo].[NashvilleHousing] b <br>
-	on a.parcel_id = b.parcel_id and a.unique_id != b.unique_id <br>
-	where a.[property_address] is null <br>
+**Updates missing address in duplicate parcel id's** <br>
+```sql
+update a
+set a.property_address = b.property_address
+	from [dbo].[NashvilleHousing] a
+	join [dbo].[NashvilleHousing] b
+	on a.parcel_id = b.parcel_id and a.unique_id != b.unique_id
+	where a.[property_address] is null
+```
+
 ---
 -- Splitting property_address into individual columns (Address, City) -- <br>
 -- Made data more useable <br>
