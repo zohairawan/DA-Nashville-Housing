@@ -1,10 +1,12 @@
 # DA-Nashville-Housing
 
-/* Skills Demonstrated: Data Cleaning
-							Filled in missing data
-							Made data more useable
-							Standardize column
-							Remove Duplicates
+/*
+Skills Demonstrated:
+- Data Cleaning
+- Filled in missing data
+- Made data more useable
+- Standardize column
+- Remove Duplicates
 */
 
 -- Boilerplate --
