@@ -38,7 +38,7 @@ from
 ---
 
 ### 1. Fill in missing property_address data
-**Displays duplicate parcel id's, one of which is missing addresses**
+##### Displays duplicate parcel id's, one of which is missing addresses
 ```sql
 select
 	  a.parcel_id
@@ -54,8 +54,6 @@ on a.parcel_id = b.parcel_id and a.unique_id != b.unique_id
 where a.[property_address] is null
 order by a.parcel_id
 ```
----
-
 ##### Filled in missing data
 ```sql
 update a
@@ -68,21 +66,19 @@ set a.property_address = b.property_address
 
 ---
 
-**Splitting property_address into individual columns (Address, City)** <br>
-**Made data more useable**
-
-**Adding [split_property_address] column**
+### 2. Make data useable by splitting property_address into individual columns (Address, City)
+##### Adding [split_property_address] column
 ```sql
 alter table [dbo].[NashvilleHousing]
 add [split_property_address] nvarchar(35)
 ```
-**Adding [split_property_city] column**
+##### Adding [split_property_city] column
 ```sql
 alter table [dbo].[NashvilleHousing]
 add [split_property_city] nvarchar(18)
 ```
-
-**Setting values into split_address column**
+<br>
+##### Setting values into split_address column
 ```sql
 update [dbo].[NashvilleHousing]
 set [split_property_address] = substring([property_address], 1, charindex(',', [property_address])-1)
