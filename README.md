@@ -1,4 +1,8 @@
 # Nashville Housing Data Cleaning
+
+### Tools Used:
+* SQL Server / SQL Server Management Studio (SSMS)
+
 ### Skills Demonstrated
 * Data Cleaning
     * Filled in missing data with appropriate values
